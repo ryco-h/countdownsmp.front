@@ -1,3 +1,22 @@
+@font-face {
+  font-family: "Homenaje";
+  src: url("//db.onlinewebfonts.com/t/a93b779e76d94bd2533cb63dcfce55a2.eot");
+  src: url("//db.onlinewebfonts.com/t/a93b779e76d94bd2533cb63dcfce55a2.eot?#iefix") format("embedded-opentype"),
+      url("//db.onlinewebfonts.com/t/a93b779e76d94bd2533cb63dcfce55a2.woff2") format("woff2"),
+      url("//db.onlinewebfonts.com/t/a93b779e76d94bd2533cb63dcfce55a2.woff") format("woff"),
+      url("//db.onlinewebfonts.com/t/a93b779e76d94bd2533cb63dcfce55a2.ttf") format("truetype"),
+      url("//db.onlinewebfonts.com/t/a93b779e76d94bd2533cb63dcfce55a2.svg#Homenaje") format("svg"); 
+}
+
+@font-face {font-family: "Kreon";
+  src: url("//db.onlinewebfonts.com/t/77bcfa101d1561d5b91cbf020d539389.eot");
+  src: url("//db.onlinewebfonts.com/t/77bcfa101d1561d5b91cbf020d539389.eot?#iefix") format("embedded-opentype"),
+      url("//db.onlinewebfonts.com/t/77bcfa101d1561d5b91cbf020d539389.woff2") format("woff2"),
+      url("//db.onlinewebfonts.com/t/77bcfa101d1561d5b91cbf020d539389.woff") format("woff"),
+      url("//db.onlinewebfonts.com/t/77bcfa101d1561d5b91cbf020d539389.ttf") format("truetype"),
+      url("//db.onlinewebfonts.com/t/77bcfa101d1561d5b91cbf020d539389.svg#Kreon") format("svg");
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +24,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #24292e;
 }
 
 code {
