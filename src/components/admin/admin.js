@@ -8,6 +8,7 @@ import logoCD from '../../media/logo_cd.png'
 import { useHomeStyles } from "../home/home.style"
 import './admin.css'
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import { isMobile } from "react-device-detect"
 
 export default function Admin() {
 
@@ -87,8 +88,8 @@ function AdminIndex() {
             flexDirection: 'column',
             gap: '2vw'
          }}>
-            <div style={{display: 'flex', flexDirection: 'row', backgroundColor: 'white', width: '80%', padding: '2vw', margin: '1vw', gap: '20px'}}>
-               <FormControl sx={{minWidth: 120 }}>
+            <div style={{display: 'flex', flexDirection: (isMobile) ? 'column' : 'row', backgroundColor: 'white', width: '80%', padding: '2vw', margin: '1vw', gap: '20px'}}>
+               <FormControl sx={{minWidth: 120 }} >
                   <InputLabel id="demo-simple-select-label">Name</InputLabel>
                   <Select
                      labelId="demo-simple-select-label"
@@ -96,7 +97,7 @@ function AdminIndex() {
                      value={name}
                      label="Name"
                      onChange={handleChange}
-                     >
+                  >
                      {(dataUsers) && dataUsers.map((user, idx) => (
                         <MenuItem key={user.name+idx} value={user.name}>{user.name}</MenuItem>
                      ))}

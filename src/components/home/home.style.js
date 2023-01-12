@@ -25,7 +25,7 @@ export const useHomeStyles = makeStyles({
       marginBottom: '2vw',
    },
    searchInput: {
-      width: (isMobile || window.innerWidth <= 400) && '100%',
+      width: (isMobile || window.innerWidth <= 400) && '70%',
       flexDirection: 'row',
       justifyContent: 'space-between',
       display: 'flex',
@@ -40,7 +40,7 @@ export const useHomeStyles = makeStyles({
    input: {
       paddingBottom: '10px',
       color: 'white',
-      width: '300px',
+      width: (isMobile) ? '100%' : '300px',
       padding: '5px',
       transition: 'width .2s ease-in-out',
       border: '0px',
@@ -48,7 +48,7 @@ export const useHomeStyles = makeStyles({
       '&:focus': {
          boxSizing: 'border-box',
          outline: 'none',
-         width: props => (isMobile || window.innerWidth <= 400) ? `100%` : '400px',
+         width: props => (isMobile || window.innerWidth <= 400) ? `90%` : '400px',
       },
       '&::placeholder': {
          fontFamily: 'MinecraftiaRegular',
@@ -56,7 +56,7 @@ export const useHomeStyles = makeStyles({
          cursor: 'pointer',
          textShadow: '3px 2px #00000020',
          letterSpacing: '1px',
-         fontSize: '20px'
+         fontSize: (isMobile) ? '15px' : '20px'
       },
    },
 })

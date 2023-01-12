@@ -16,6 +16,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from "@mui/material"
+import { isMobile } from "react-device-detect"
 
 function createData(uuid, name, time, ytChannel) {
   return { uuid, name, time, ytChannel };
@@ -28,7 +29,7 @@ export default function Home() {
 
 function HomeIndex() {
 
-   const styles = useHomeStyles()
+   const styles = useHomeStyles({width: window.innerWidth})
    const [rows, setRows] = useState([])
    const [searchData, setSearchData] = useState([])
    const [isLoading, setLoading] = useState(false)
@@ -97,14 +98,15 @@ function HomeIndex() {
          <div style={{
             width: '100%',
             display: 'flex',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            marginBottom: (isMobile) && '2vw'
          }}>
             <div className={`${styles.searchInput} searchInput}`}>
                <input className={`${styles.input} input}`} placeholder='Search...'
                onChange={(e) => searchHandler(e.target.value.toLowerCase())}
                style={{
                   fontFamily: 'MinecraftiaRegular',
-                  fontSize: '140%',
+                  fontSize: (isMobile) ? '100%' : '140%',
                   color: 'white',
                   textShadow: '3px 2px #00000020',
                   letterSpacing: '1px',
@@ -115,14 +117,14 @@ function HomeIndex() {
 
          <div className={styles.body}>
             <TableContainer component={Paper} sx={{
-                  width: '80%',
+                  width: (isMobile) ? '90%' : '80%',
                   backgroundColor: '#5C5858',
                   color: 'white'
                }}>
                <Table sx={{ minWidth: 650 }} aria-label="simple table">
                   <TableHead>
                      <TableRow
-                     sx={{ '& .MuiTableCell-head': {color: 'white', fontSize: '20px', fontFamily: 'MinecraftiaRegular'} }}
+                     sx={{ '& .MuiTableCell-head': {color: 'white', fontSize: (isMobile) ? '2vhpx' : '20px', fontFamily: 'MinecraftiaRegular'} }}
                      >
                         <TableCell align="center">Name</TableCell>
                         <TableCell align="center">Time</TableCell>
@@ -140,7 +142,7 @@ function HomeIndex() {
                         <TableCell scope="row" colSpan={6} sx={{
                            fontFamily: 'MinecraftiaRegular',
                            textAlign: 'center',
-                           fontSize: '1.5vw'
+                           fontSize: (isMobile) ? '3vh' : '1.5vw'
                         }}>
                            Loading players...
                         </TableCell>
@@ -178,7 +180,7 @@ function HomeIndex() {
                               {row.name}
                            </div>
                         </TableCell>
-                        <TableCell align="center" sx={{fontSize: '1vw', fontFamily: 'MinecraftiaRegular'}}>
+                        <TableCell align="center" sx={{fontSize: '2.5vh', fontFamily: 'MinecraftiaRegular'}}>
                            {(row.time === '' || row.time === null ? <span style={{color: 'red'}}>DEAD</span> : row.time)}
                         </TableCell>
                         <TableCell align="left">
@@ -186,7 +188,7 @@ function HomeIndex() {
                               {/* <a href={row.ytChannel} target='_blank'>
                                  <YouTubeIcon sx={{cursor: 'pointer', color: 'red', fontSize: '3vw', '&:hover': {color: 'white'}}}/>
                               </a> */}
-                              <Button style={{textTransform: 'none', backgroundColor: 'red', fontSize: '1.2vw'}} variant='contained' startIcon={<YouTubeIcon sx={{fontSize: '1.2vw'}}/>}>Youtube</Button>
+                              <Button style={{textTransform: 'none', backgroundColor: 'red', fontSize: '2.5vh'}} variant='contained' startIcon={<YouTubeIcon sx={{fontSize: '2vh'}}/>}>Youtube</Button>
                            </div>
                         </TableCell>
                      </TableRow>
