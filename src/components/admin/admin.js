@@ -7,6 +7,7 @@ import logo from '../../media/logo.png'
 import logoCD from '../../media/logo_cd.png'
 import { useHomeStyles } from "../home/home.style"
 import './admin.css'
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 export default function Admin() {
 
@@ -86,7 +87,7 @@ function AdminIndex() {
             flexDirection: 'column',
             gap: '2vw'
          }}>
-            <div style={{display: 'flex', flexDirection: 'row', backgroundColor: 'white', width: '80%', padding: '2vw', gap: '20px'}}>
+            <div style={{display: 'flex', flexDirection: 'row', backgroundColor: 'white', width: '80%', padding: '2vw', margin: '1vw', gap: '20px'}}>
                <FormControl sx={{minWidth: 120 }}>
                   <InputLabel id="demo-simple-select-label">Name</InputLabel>
                   <Select
@@ -102,7 +103,9 @@ function AdminIndex() {
                   </Select>
                </FormControl>
                <TextField value={(ytChannel) ? ytChannel : ''} placeholder="Youtube Channel" fullWidth onChange={handleYt}/>
-               <Button type="submit" variant="contained" onClick={() => submitYtChannel()}>Save</Button>
+               <Button variant="contained" onClick={() => submitYtChannel()}>
+                  Save
+               </Button>
             </div>
          </div>
 

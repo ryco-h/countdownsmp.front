@@ -25,10 +25,10 @@ export const useHomeStyles = makeStyles({
       marginBottom: '2vw',
    },
    searchInput: {
-      display: 'flex',
       width: (isMobile || window.innerWidth <= 400) && '100%',
       flexDirection: 'row',
       justifyContent: 'space-between',
+      display: 'flex',
       alignItems: 'center',
       backgroundColor: '#FABFBF40',
       borderRadius: '20px',
@@ -38,6 +38,7 @@ export const useHomeStyles = makeStyles({
       margin: '1vw',
    },
    input: {
+      paddingBottom: '10px',
       color: 'white',
       width: '300px',
       padding: '5px',
@@ -55,7 +56,7 @@ export const useHomeStyles = makeStyles({
          cursor: 'pointer',
          textShadow: '3px 2px #00000020',
          letterSpacing: '1px',
-         fontSize: '1.2vw'
+         fontSize: '20px'
       },
    },
 })

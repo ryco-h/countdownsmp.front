@@ -15,14 +15,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { CircularProgress, TableFooter, TablePagination } from "@mui/material";
-import IconButton from '@mui/material/IconButton';
-import FirstPageIcon from '@mui/icons-material/FirstPage';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import LastPageIcon from '@mui/icons-material/LastPage';
-import { useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
+import { Button } from "@mui/material"
 
 function createData(uuid, name, time, ytChannel) {
   return { uuid, name, time, ytChannel };
@@ -190,9 +183,10 @@ function HomeIndex() {
                         </TableCell>
                         <TableCell align="left">
                            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%'}}>
-                              <a href={row.ytChannel} target='_blank'>
+                              {/* <a href={row.ytChannel} target='_blank'>
                                  <YouTubeIcon sx={{cursor: 'pointer', color: 'red', fontSize: '3vw', '&:hover': {color: 'white'}}}/>
-                              </a>
+                              </a> */}
+                              <Button style={{textTransform: 'none', backgroundColor: 'red', fontSize: '1.2vw'}} variant='contained' startIcon={<YouTubeIcon sx={{fontSize: '1.2vw'}}/>}>Youtube</Button>
                            </div>
                         </TableCell>
                      </TableRow>
