@@ -17,6 +17,16 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from "@mui/material"
 import { isMobile } from "react-device-detect"
+import { io } from 'socket.io-client'
+
+// const socket = io('http://localhost:5000/', {
+   
+//    withCredentials: true,
+//    extraHeaders: {
+//       "my-custom-header": "abcd"
+//    }
+// })
+
 
 function createData(uuid, name, time, ytChannel) {
   return { uuid, name, time, ytChannel };
@@ -28,6 +38,15 @@ export default function Home() {
 }
 
 function HomeIndex() {
+
+   // Socket.io
+   // socket.on("connect", () => {
+   //    console.log('Socket.io is connected')
+   // });
+
+   // socket.on("ADDED_DATA", (data) => {
+   //    console.log(data)
+   // })
 
    const styles = useHomeStyles({width: window.innerWidth})
    const [rows, setRows] = useState([])
@@ -54,6 +73,29 @@ function HomeIndex() {
       })
    }, [])
 
+   useEffect(() => {
+
+      const interval = setInterval(async () => {
+         await fetchData().then(res => {
+            let list_to_update = []
+
+            for(var i in rows) {
+               for(var j in res.result) {
+                  console.log(rows[i].name, res.result[j].name)
+                  if(rows[i].name === res.result[j].name) {
+                     rows[i].time = res.result[j].time
+                     list_to_update.push(rows[i])
+                  }
+               }
+            }
+            setRows(list_to_update)
+            console.log(list_to_update)
+         })
+       }, 1000);
+     
+       return () => clearInterval(interval);
+   }, [rows])
+
    if(!rows) {
       return(
          <div style={{
@@ -78,8 +120,6 @@ function HomeIndex() {
          setRows(searchData)
       }
    }
-
-   console.log(rows.length)
 
    return(
       <div className={styles.root}>
